@@ -49,7 +49,12 @@ module.exports = {
            * For developing, use 'style-loader' instead.
            * */
           prod ? MiniCssExtractPlugin.loader : 'style-loader',
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+            },
+          },
         ],
       },
     ],

@@ -18,7 +18,11 @@
     "jest-puppeteer": "^4.4.0",
     "mini-css-extract-plugin": "^0.11.2",
     "node-sass": "^4.14.1",
+    "postcss-cli": "^7.1.2",
+    "postcss-import": "^12.0.1",
+    "postcss-load-config": "^2.1.0",
     "postcss-loader": "^4.0.2",
+    "postcss-preset-env": "^6.7.0",
     "prettier": "^2.1.2",
     "prettier-plugin-svelte": "^1.2.1",
     "puppeteer": "^5.3.0",
@@ -29,6 +33,7 @@
     "svelte-jester": "^1.1.5",
     "svelte-loader": "2.13.6",
     "svelte-preprocess": "^4.3.0",
+    "tailwindcss": "^1.8.10",
     "ts-loader": "^8.0.3",
     "typescript": "^4.0.2",
     "webpack": "^4.44.1",
@@ -36,15 +41,14 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack",
+    "build": "cross-env NODE_ENV=production webpack && cross-env NODE_ENV=production postcss src/tailwind.css -o public/tailwind.css",
     "dev": "webpack-dev-server --content-base public",
+    "tailwind": "postcss src/tailwind.css -o public/tailwind.css",
     "test": "jest src",
     "e2e": "jest e2e --preset jest-puppeteer",
-    "format": "prettier --write **/*.{svelte,js,json,css,scss,ts}"
+    "format": "prettier --write **/*.{svelte,js,json,css,ts,yaml}"
   },
   "dependencies": {
-    "page": "^1.11.6",
-    "postcss-load-config": "^2.1.0",
-    "postcss-preset-env": "^6.7.0"
+    "page": "^1.11.6"
   }
 }
