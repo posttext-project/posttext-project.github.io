@@ -43,6 +43,7 @@ module.exports = {
       },
       {
         test: /\.p?css$/,
+        exclude: /svelte\.\d+\.css/,
         use: [
           /**
            * MiniCssExtractPlugin doesn't support HMR.

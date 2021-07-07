@@ -7,5 +7,3 @@ const app = new App({
 })
 
 ;(<any>window).app = app
-
-export default app
